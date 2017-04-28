@@ -15,20 +15,24 @@ for triangulos in text:
 	index_tri = 0
 	res = 0
 	index_of_range = 0
-	menor = 9999999999999999999999999999
+	menor = Integer.MAX_VALUE
 
 	for lado in range(0,len(triangulos_sp)):
+		a = triangulos_sp[lado]
+		if (a > menor):
+			break
 		for lado2 in range(lado+1,len(triangulos_sp)):
-			for lado3 in range(lado2+1,len(triangulos_sp)):
-				a = triangulos_sp[lado]
-				b = triangulos_sp[lado2]
+			b = triangulos_sp[lado2]
+			if (a+b > menor):
+				break
+			for lado3 in range(lado2+1,len(triangulos_sp)):	
 				c = triangulos_sp[lado3]
 				if (a+b >c)&(a+c>b)&(c+b>a)&(a+b+c<menor):
 					menor = a+b+c
 					#print(a,b,c)					
 					break				
 				#print(a,b,c)
-	if menor == 9999999999999999999999999999:
+	if menor == Integer.MAX_VALUE:
 		return_value.append("IMPOSSIBLE")	
 	else:
 		return_value.append(menor)	
@@ -36,7 +40,7 @@ for triangulos in text:
 	index_time = index_time -1
 
 index = 0;
-text_file = open("OutputBreak_2.txt", "w")
+text_file = open("Outputfast.txt", "w")
 for val in return_value:
 	index = index + 1
 	text_file.write("Case #"+str(index)+": "+str(val)+"\n")
