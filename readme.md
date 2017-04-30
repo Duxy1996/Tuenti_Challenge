@@ -6,4 +6,5 @@
 ### Completada ronda 4
 ### Ronda 5 FAIL
 ### Completada ronda 6
-### Ronda 7 en progreso
+### Completada ronda 7
+### Ronda 8 en progreso
